@@ -43,4 +43,16 @@ public class Board extends JPanel{
         frame.setVisible(true);
     }
 
+    public void updateBoard(int[][] gameArray) {
+        for (int i = 0; i < gameArray.length; i++) {
+            for (int j = 0; j < gameArray.length; j++) {
+                if (gameArray[i][j] == 1) {
+                    cells[i][j].setBackground(Color.GREEN);
+                } else {
+                    cells[i][j].setBackground(Color.Light_GRAY);
+                }
+            }
+        }
+    }
+
 }
