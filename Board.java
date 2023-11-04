@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Board {
+public class Board extends JPanel{
 
+    public JPanel[][] cells = new JPanel[20][20];  
+    
     public void initBoard(int x, int posX, int posY, int[][] gameArray){
         JFrame frame = new JFrame("Snake Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,9 +25,11 @@ public class Board {
                 cell.setBorder(BorderFactory.createLineBorder(Color.black));
                 panel.add(cell);
                 gameArray[i][j] = 0; // 0 = empty cell
+                cells[i][j] = cell; 
 
                 if (i == posY && j == posX) { 
                     cell.setBackground(Color.GREEN);
+
                     gameArray[i][j] = 1; // 1 = filled space
                 } else if (j % 2 == 1) {
                     cell.setBackground(Color.LIGHT_GRAY);
